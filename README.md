@@ -30,7 +30,7 @@ In production :
 <script src="/js/dest/common.js"></script>
 ```
 
-App.js parse the page and search for the data-view attribute on the body, the body of your page being the default container for your application.
+App.js parse the page and search for the data-view attribute of the body tag, the body of your page being the default container for your application.
 If you want to change the default container for some other element, change the selector at the end of App.js
 
 For example, if you want your container to be the div with the class "content", change this :
@@ -52,9 +52,9 @@ $(function () {
 </body>
 ```
 
-Every javascript dependencies are in the top of your javascript files. Files that are used in every pages should be referenced at the top of App.js or View.js. Libraries that depends on other libraries (like ring.js need underscore to work properly), you need to define it in the shim section of common.js
+Every javascript dependencies are in the top of your javascript files. Files that are used in every pages should be referenced at the top of App.js or View.js. Libraries that depends on other libraries (like ring.js need underscore to work properly), needs to be defined in the shim section of common.js
 
-Require will automatically load the javascript file with the same name you declared in the data-view attribute of the current page. For example, if you create a contact page, add data-view="contact" on your page's container and create a file named ViewContact.js in src/views (copy/paste ViewHome.js and rename it).
+Require will automatically load the javascript file with the same name you declared in the data-view attribute of the current page. For example, if you create a contact page, add data-view="Contact" on your page's container and create a file named ViewContact.js in src/views (copy/paste ViewHome.js and rename it).
 Add your dependencies at the top of the file and change the className for "ViewContact".
 
 Every views extends View.js, so if you want to have code accessible/executed in every page, add it there.

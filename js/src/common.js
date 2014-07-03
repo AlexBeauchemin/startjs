@@ -1,4 +1,5 @@
 requirejs.config({
+  urlArgs: 'v=' + window.config.version,
   paths: {
     'jquery': //[
       //'//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min',
