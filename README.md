@@ -9,7 +9,8 @@ In development :
 ```html
 <script>
     var require = {
-        baseUrl: '/js/src'
+        baseUrl: '/js/src',
+        urlArgs: 'v=' + window.config.version
     };
 </script>
 
@@ -24,6 +25,7 @@ In production :
 <script>
     var require = {
         baseUrl: '/js/dest'
+        urlArgs: 'v=' + window.config.version
     };
 </script>
 

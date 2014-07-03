@@ -3,8 +3,6 @@
     jsLibs: 'js/src/libs/custom',
     jsSrc: 'js/src',
     jsDest: 'js/dest',
-    cssSrc: 'css/src',
-    cssDest: 'css/dest',
     views: []
   };
 
@@ -24,33 +22,6 @@
     banner: '/* <%= pkg.name %> - <%= pkg.version %>\n' +
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy-mm-dd") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n\n',
-    autoprefixer: {
-      single_file: {
-        options: {
-          browsers: ['last 3 version', '> 1%', 'ie 9']
-        },
-        src: '<%= config.cssSrc %>/main.css',
-        dest: '<%= config.cssSrc %>/main.css'
-      }
-    },
-    copy: {
-      main: {
-        files: [
-          {cwd: '<%= config.cssSrc %>/libs/', src: ['*.css'], dest: '<%= config.cssDest %>/libs/', expand: true},
-          {cwd: '<%= config.cssSrc %>/fonts/', src: ['**'], dest: '<%= config.cssDest %>/fonts/', expand: true},
-          {src: ['<%= config.cssSrc %>/main.css'], dest: '<%= config.cssDest %>/main.css'}
-        ]
-      }
-    },
-    csswring: {
-      min: {
-        options: {
-          map: true
-        },
-        src: '<%= config.cssSrc %>/main.css',
-        dest: '<%= config.cssSrc %>/main.css'
-      }
-    },
     jshint: {
       files: ['<%= config.jsSrc %>/*.js', '<%= config.jsSrc %>/**/*.js', '<%= config.jsLibs %>/*.js'],
       options: {
@@ -94,35 +65,15 @@
         }
       }
     },
-    sass: {
-      options: {
-        sourceComments: 'map'
-      },
-      dist: {
-        files: [
-          {
-            src: '<%= config.cssSrc %>/main.scss',
-            dest: '<%= config.cssSrc %>/main.css'
-          }
-        ]
-      }
-    },
     watch: {
       js: {
         files: ['<%= config.jsSrc %>/*.js', '<%= config.jsSrc %>/**/*.js', '<%= config.jsLibs %>/*.js'],
-        tasks: ['jshint', 'requirejs', 'copy']
-      },
-      sass: {
-        files: ['<%= config.cssSrc %>/*.scss', '<%= config.cssSrc %>/**/*.scss'],
-        tasks: ['sass', 'autoprefixer', 'csswring'],
-        options: {
-          spawn: false
-        }
+        tasks: ['jshint', 'requirejs']
       }
     }
 
   });
 
-  grunt.registerTask('default', ['jshint', 'sass', 'autoprefixer', 'csswring', 'requirejs', 'copy', 'retire', 'watch']);
-  grunt.registerTask('publish', ['sass', 'autoprefixer', 'csswring', 'requirejs', 'copy']);
+  grunt.registerTask('default', ['jshint', 'requirejs', 'retire', 'watch']);
+  grunt.registerTask('publish', ['requirejs']);
 };

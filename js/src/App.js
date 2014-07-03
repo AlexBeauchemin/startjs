@@ -1,6 +1,4 @@
-﻿/*jshint loopfunc: true */
-
-requirejs([
+﻿require([
   'ring',
   'bootstrap',
   'views/View'
