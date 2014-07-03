@@ -1,0 +1,2 @@
+define("views/ViewHome",["ring"],function(e){var i="ViewHome";return $[i]=e.create([$.View],{constructor:function(e){var i=this;i.$super(e)},init:function(){var e=this;e.$super()},bindEvents:function(){var e=this;e.$super()},empty:null}),$[i]});
+//# sourceMappingURL=ViewHome.js.map

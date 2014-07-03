@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="A Javascript starter">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>StartJS</title>
+
+        <link rel="stylesheet" href="css/dest/main.css">
+
+        <script>
+            window.config = {
+                version: '0.1' //Cache buster
+            }
+        </script>
+    </head>
+    <body>
+        <!--- Content of website here --->
+
+        <!--- End content --->
+
+
+
+        <!-- Debug mode (dev) -->
+        <!-- ---------------  -->
+        <script>
+            var require = {
+                urlArgs: 'v=' + window.config.version,
+                baseUrl: '/js/src'
+            };
+        </script>
+
+        <script data-main="common" src="/js/src/libs/require.js"></script>
+        <script>
+            requirejs(['App'], function() { });
+        </script>
+        <!-- -------------------- -->
+        <!-- End debug mode (dev) -->
+
+
+
+        <!-- Production ready -->
+        <!-- Use this block and remove the one above in production -->
+        <!-- ----------------------------------------------------- -->
+
+            <!--
+            <script>
+                var require = {
+                    urlArgs: 'v=' + window.config.version,
+                    baseUrl: '/js/dest'
+                };
+            </script>
+
+            <script src="/js/dest/common.js"></script>
+            -->
+
+        <!-- -------------------- -->
+        <!-- End production ready -->
+    </body>
+</html>

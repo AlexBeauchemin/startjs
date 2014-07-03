@@ -1,0 +1,2 @@
+define(["ring"],function(n){var i="View";return $[i]=n.create({constructor:function(n){var i=this;i.$el=n,i.init()},$nav:null,init:function(){var n=this;n.$nav=n.$el.find("nav"),n.bindEvents()},bindEvents:function(){},anotherFunction:function(){},empty:null}),$[i]});
+//# sourceMappingURL=View.js.map
